@@ -1,5 +1,5 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="RFID" colour="#00aeae" icon="sensor">
+  <category name="RFID" colour="#00aeae" icon="electronics">
     <block type="scan_card" />
     <block type="scan_and_check">
       <value name="LISTNAME">
