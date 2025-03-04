@@ -14,7 +14,7 @@ Blockly.Blocks['scan_card'] = {
 Blockly.Python['scan_card'] = function(block) {
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *';
   var code = 'rfid.scan_card()';
-  return [code, Blockly.Python.ORDER_NONE]; // Trả về dạng tuple (mảng có 2 phần tử)
+  return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['scan_and_add_card'] = {
