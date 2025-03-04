@@ -82,8 +82,6 @@ Blockly.Blocks['scan_and_check'] = {
         { "type": "input_dummy" }
       ],
       "output": "Boolean",
-      "previousStatement": null,
-      "nextStatement": null,
       "colour": "#00aeae",
       "tooltip": "Quét thẻ RFID và kiểm tra có thuộc danh sách không",
       "helpUrl": ""
