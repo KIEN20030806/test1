@@ -4,28 +4,28 @@
     <block type="scan_and_check">
       <value name="LISTNAME">
         <shadow type="text">
-          <field name="TEXT">listname</field>
+          <field name="TEXT"></field>
         </shadow>
       </value>
     </block>
     <block type="scan_and_add_card">
       <value name="LISTNAME">
         <shadow type="text">
-          <field name="TEXT">listname</field>
+          <field name="TEXT"></field>
         </shadow>
       </value>
     </block>
     <block type="scan_and_remove_card">
       <value name="LISTNAME">
         <shadow type="text">
-          <field name="TEXT">listname</field>
+          <field name="TEXT"></field>
         </shadow>
       </value>
     </block>
     <block type="clear_list">
       <value name="LISTNAME">
         <shadow type="text">
-          <field name="TEXT">listname</field>
+          <field name="TEXT"></field>
         </shadow>
       </value>
     </block>
