@@ -1,7 +1,14 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="RFID" colour="#ae00ae">
+  <category name="RFID" colour="#ae00ae" icon="sensors">
     <block type="scan_card" />
     <block type="scan_and_add_card">
+      <value name="LISTNAME">
+        <shadow type="text">
+          <field name="TEXT">my_list</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="scan_and_check">
       <value name="LISTNAME">
         <shadow type="text">
           <field name="TEXT">my_list</field>
