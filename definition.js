@@ -12,9 +12,9 @@ Blockly.Blocks['scan_card'] = {
 };
 
 Blockly.Python['scan_card'] = function(block) {
-  var code = 'rfid.scan_card()';
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *';
-  return [code, Blockly.Python.ORDER_ATOMIC];
+  var code = 'rfid.scan_card()';
+  return [code, Blockly.Python.ORDER_ATOMIC]; // Trả về dạng tuple (mảng có 2 phần tử)
 };
 
 Blockly.Blocks['scan_and_add_card'] = {
