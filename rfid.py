@@ -6,13 +6,13 @@ This address needs to match the RFID Module pad:
 [ON :ON ] 0x2F
 '''
 
+from yolo_uno import *
 import json
 from time import sleep, sleep_ms
 from rfid_expansion import *
 import os
 import uos
 from machine import SoftI2C, Pin
-from yolo_uno import *
 
 _SYSNAME = os.uname().sysname
 
