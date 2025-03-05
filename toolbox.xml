@@ -3,8 +3,8 @@
     <block type="scan_card"></block>
     <block type="scan_and_check">
       <value name="LISTNAME">
-        <shadow type="text">
-          <field name="TEXT"></field>
+        <shadow type="number">
+          <field name="NUMBER"></field>
         </shadow>
       </value>
     </block>
