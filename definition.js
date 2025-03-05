@@ -28,11 +28,11 @@ Blockly.Blocks['scan_and_check'] = {
           type: "field_dropdown",
           name: "LISTNAME",
           options: [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
+            ["1", "1"],
+            ["1", "2"],
+            ["1", "3"],
+            ["1", "4"],
+            ["1", "5"],
           ],
         }
       ],
