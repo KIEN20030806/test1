@@ -17,6 +17,40 @@ Blockly.Python['scan_card'] = function(block) {
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
+
+Blockly.Blocks['scan_and_check'] = {
+  init: function() {
+    this.jsonInit({
+      "type": "scan_and_check",
+      "message0": "quét và kiểm tra thẻ trong danh sách %1",
+      "args0": [
+        {
+          type: "field_dropdown",
+          name: "LISTNAME",
+          options: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+        }
+      ],
+      "output": "Boolean",
+      "colour": "#00aeae",
+      "tooltip": "Quét thẻ RFID và kiểm tra có thuộc danh sách không",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Python['scan_and_check'] = function(block) {
+  var listname = Blockly.Python.valueToCode(block, 'LISTNAME', Blockly.Python.ORDER_ATOMIC) || "''";
+  Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
+  var code = "rfid.scan_and_check(rfids_" + listname + ")";
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
+
 Blockly.Blocks['scan_and_add_card'] = {
   init: function() {
     this.jsonInit({
@@ -49,39 +83,6 @@ Blockly.Python['scan_and_add_card'] = function(block) {
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
   var code = "rfid.scan_and_add_card(rfids_" + listname + ")\n";
   return code;
-};
-
-Blockly.Blocks['scan_and_check'] = {
-  init: function() {
-    this.jsonInit({
-      "type": "scan_and_check",
-      "message0": "quét và kiểm tra thẻ trong danh sách %1%2",
-      "args0": [
-        {
-          type: "field_dropdown",
-          name: "LISTNAME",
-          options: [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-          ],
-        }
-      ],
-      "output": "Boolean",
-      "colour": "#00aeae",
-      "tooltip": "Quét thẻ RFID và kiểm tra có thuộc danh sách không",
-      "helpUrl": ""
-    });
-  }
-};
-
-Blockly.Python['scan_and_check'] = function(block) {
-  var listname = Blockly.Python.valueToCode(block, 'LISTNAME', Blockly.Python.ORDER_ATOMIC) || "''";
-  Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
-  var code = "rfid.scan_and_check(rfids_" + listname + ")";
-  return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 Blockly.Blocks['scan_and_remove_card'] = {

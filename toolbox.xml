@@ -3,15 +3,15 @@
     <block type="scan_card"></block>
     <block type="scan_and_check">
       <value name="LISTNAME">
-        <shadow type="number">
-          <field name="NUMBER"></field>
+        <shadow type="math_number">
+          <field name="NUM"></field>
         </shadow>
       </value>
     </block>
     <block type="scan_and_add_card">
       <value name="LISTNAME">
-        <shadow type="text">
-          <field name="TEXT"></field>
+        <shadow type="math_number">
+          <field name="NUM"></field>
         </shadow>
       </value>
     </block>
