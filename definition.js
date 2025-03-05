@@ -47,7 +47,7 @@ Blockly.Blocks['scan_and_check'] = {
 Blockly.Python['scan_and_check'] = function(block) {
   var list_name = block.getFieldValue('list_name');
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
-  var code = `rfid.scan_and_check("rfids_${list_name}")\n`;
+  var code = `rfid.scan_and_check("rfids_${list_name}")`;
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
