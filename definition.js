@@ -45,7 +45,7 @@ Blockly.Blocks['scan_and_check'] = {
 };
 
 Blockly.Python['scan_and_check'] = function(block) {
-  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = block.getFieldValue('list_name');
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
   var code = "rfid.scan_and_check(rfids_" + list_name + ")";
   return [code, Blockly.Python.ORDER_ATOMIC];
@@ -79,7 +79,7 @@ Blockly.Blocks['scan_and_add_card'] = {
 };
 
 Blockly.Python['scan_and_add_card'] = function(block) {
-  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = block.getFieldValue('list_name');
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
   var code = "rfid.scan_and_add_card(rfids_" + list_name + ")\n";
   return code;
@@ -113,7 +113,7 @@ Blockly.Blocks['scan_and_remove_card'] = {
 };
 
 Blockly.Python['scan_and_remove_card'] = function(block) {
-  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = block.getFieldValue('list_name');
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
   var code = "rfid.scan_and_remove_card(rfids_" + list_name + ")\n";
   return code;
@@ -147,7 +147,7 @@ Blockly.Blocks['clear_list'] = {
 };
 
 Blockly.Python['clear_list'] = function(block) {
-  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = block.getFieldValue('list_name');
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
   var code = "rfid.clear_list(rfids_" + list_name + ")\n";
   return code;
