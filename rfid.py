@@ -319,8 +319,8 @@ class RFID:
         id = self.readTagID()
         return id['success']
     
-    def load_list(self, listname):
-        filename = f"{listname}.json"
+    def load_list(self, list_name):
+        filename = f"{list_name}.json"
         try:
             with open(filename, "r") as f:
                 data = json.load(f)
@@ -329,66 +329,66 @@ class RFID:
         except (OSError, ValueError):
             data = []
         
-        self.lists[listname] = data  
+        self.lists[list_name] = data  
         return data  
 
-    def save_list(self, listname):
-        if listname in self.lists:
-            filename = f"{listname}.json"
+    def save_list(self, list_name):
+        if list_name in self.lists:
+            filename = f"{list_name}.json"
             with open(filename, "w") as f:
-                json.dump(self.lists[listname], f)
+                json.dump(self.lists[list_name], f)
 
     def scan_card(self):
         if self.tagPresent():
             return self.readID()
         return ""
 
-    def scan_and_add_card(self, listname):
-        if listname not in self.lists:
-            self.load_list(listname) 
+    def scan_and_add_card(self, list_name):
+        if list_name not in self.lists:
+            self.load_list(list_name) 
 
         uuid = self.scan_card()
         if not uuid:
             return
 
-        if uuid not in self.lists[listname]:  
-            self.lists[listname].append(uuid)
-            self.save_list(listname) 
+        if uuid not in self.lists[list_name]:  
+            self.lists[list_name].append(uuid)
+            self.save_list(list_name) 
             print("Add card success!") 
 
-    def scan_and_check(self, listname):
-        if listname not in self.lists:
-            self.load_list(listname)  
+    def scan_and_check(self, list_name):
+        if list_name not in self.lists:
+            self.load_list(list_name)  
 
         uuid = self.scan_card()
         if not uuid:
             return False
         
-        return uuid in self.lists[listname]
+        return uuid in self.lists[list_name]
 
-    def get_list(self, listname):
-        if listname not in self.lists:
-            self.load_list(listname)  
-        return self.lists.get(listname, [])
+    def get_list(self, list_name):
+        if list_name not in self.lists:
+            self.load_list(list_name)  
+        return self.lists.get(list_name, [])
 
-    def scan_and_remove_card(self, listname):
-        if listname not in self.lists:
-            self.load_list(listname)  
+    def scan_and_remove_card(self, list_name):
+        if list_name not in self.lists:
+            self.load_list(list_name)  
 
         uuid = self.scan_card()
-        if uuid in self.lists[listname]:  
-            self.lists[listname].remove(uuid)
+        if uuid in self.lists[list_name]:  
+            self.lists[list_name].remove(uuid)
 
-            if not self.lists[listname]:  
-                filename = f"{listname}.json"
+            if not self.lists[list_name]:  
+                filename = f"{list_name}.json"
                 try:
                     uos.remove(filename) 
                 except OSError:  
                     pass  
 
-                del self.lists[listname]  
+                del self.lists[list_name]  
             else:
-                self.save_list(listname)
+                self.save_list(list_name)
                 print("Remove card success!")  
             
     def clear_list(self, list_name):

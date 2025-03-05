@@ -26,7 +26,7 @@ Blockly.Blocks['scan_and_check'] = {
       "args0": [
         {
           type: "field_dropdown",
-          name: "LISTNAME",
+          name: "list_name",
           options: [
             ["1", "1"],
             ["2", "2"],
@@ -45,9 +45,9 @@ Blockly.Blocks['scan_and_check'] = {
 };
 
 Blockly.Python['scan_and_check'] = function(block) {
-  var listname = Blockly.Python.valueToCode(block, 'LISTNAME', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
-  var code = "rfid.scan_and_check(rfids_" + listname + ")";
+  var code = "rfid.scan_and_check(rfids_" + list_name + ")";
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
@@ -59,7 +59,7 @@ Blockly.Blocks['scan_and_add_card'] = {
       "args0": [
         {
           type: "field_dropdown",
-          name: "LISTNAME",
+          name: "list_name",
           options: [
             ["1", "1"],
             ["2", "2"],
@@ -79,9 +79,9 @@ Blockly.Blocks['scan_and_add_card'] = {
 };
 
 Blockly.Python['scan_and_add_card'] = function(block) {
-  var listname = Blockly.Python.valueToCode(block, 'LISTNAME', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
-  var code = "rfid.scan_and_add_card(rfids_" + listname + ")\n";
+  var code = "rfid.scan_and_add_card(rfids_" + list_name + ")\n";
   return code;
 };
 
@@ -89,14 +89,19 @@ Blockly.Blocks['scan_and_remove_card'] = {
   init: function() {
     this.jsonInit({
       "type": "scan_and_remove_card",
-      "message0": "quét và xóa thẻ khỏi danh sách %1%2",
+      "message0": "quét và xóa thẻ khỏi danh sách %1",
       "args0": [
         {
-          "type": "input_value",
-          "name": "LISTNAME",
-          "check": "String"
-        },
-        { "type": "input_dummy" }
+          type: "field_dropdown",
+          name: "list_name",
+          options: [
+            ["1", "1"],
+            ["2", "2"],
+            ["3", "3"],
+            ["4", "4"],
+            ["5", "5"]
+          ],
+        }
       ],
       "previousStatement": null,
       "nextStatement": null,
@@ -108,9 +113,9 @@ Blockly.Blocks['scan_and_remove_card'] = {
 };
 
 Blockly.Python['scan_and_remove_card'] = function(block) {
-  var listname = Blockly.Python.valueToCode(block, 'LISTNAME', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
-  var code = "rfid.scan_and_remove_card(" + listname + ")\n";
+  var code = "rfid.scan_and_remove_card(rfids_" + list_name + ")\n";
   return code;
 };
 
@@ -118,14 +123,19 @@ Blockly.Blocks['clear_list'] = {
   init: function() {
     this.jsonInit({
       "type": "clear_list",
-      "message0": "xóa danh sách %1%2",
+      "message0": "xóa danh sách %1",
       "args0": [
         {
-          "type": "input_value",
-          "name": "LISTNAME",
-          "check": "String"
-        },
-        { "type": "input_dummy" }
+          type: "field_dropdown",
+          name: "list_name",
+          options: [
+            ["1", "1"],
+            ["2", "2"],
+            ["3", "3"],
+            ["4", "4"],
+            ["5", "5"]
+          ],
+        }
       ],
       "previousStatement": null,
       "nextStatement": null,
@@ -137,8 +147,8 @@ Blockly.Blocks['clear_list'] = {
 };
 
 Blockly.Python['clear_list'] = function(block) {
-  var listname = Blockly.Python.valueToCode(block, 'LISTNAME', Blockly.Python.ORDER_ATOMIC) || "''";
+  var list_name = Blockly.Python.valueToCode(block, 'list_name', Blockly.Python.ORDER_ATOMIC) || "''";
   Blockly.Python.definitions_['import_rfid'] = 'from rfid import *'; 
-  var code = "rfid.clear_list(" + listname + ")\n";
+  var code = "rfid.clear_list(rfids_" + list_name + ")\n";
   return code;
 };
